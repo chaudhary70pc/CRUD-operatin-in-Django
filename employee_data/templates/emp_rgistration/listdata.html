@@ -1,0 +1,49 @@
+{% extends 'emp_rgistration/base.html' %}
+
+
+{% block content %}
+<table class="table table-borderless">
+    <thead class="border-bottom font-weight-bold">
+       <tr>
+            <td>Emp Code</td>
+            <td>Full Name</td>
+            <td>Department</td>
+            <td>Mobail</td>
+            <td>Email</td>
+             <td>
+                 <a href="{% url 'add'  %}" class="btn btn-outline-success">
+                    <i class="fas fa-plus"></i>Add new 
+                 </a>
+            </td> 
+       
+       </tr>
+    </thead>
+    <tbody>
+         {% for employee in employee_list %}
+         <tr>
+              <td>{{employee.emp_code}}</td>
+              <td>{{employee.name}}</td>
+              <td>{{employee.department}}</td>
+              <td>{{employee.mobail}}</td>
+              <td>{{employee.email}}</td>
+               <td width="10%">
+                   <a href="{% url 'update' employee.id %}" class="btn text-secondary ">
+                      <i class="fas fa-edit"></i>
+                   </a>
+                </td>
+                 <td>   
+                   <form action="{% url 'delete' employee.id %}" method="post"> 
+                    {% csrf_token %}
+                       <button type="submit" class="btn">
+                           <i class="far fa-trash-alt fa-lg text-danger float-right"></i>
+                       </button>
+                   </form>
+              </td>  
+              
+         </tr>
+         {% endfor %}
+    </tbody>
+</table>
+
+{% endblock content %}
+

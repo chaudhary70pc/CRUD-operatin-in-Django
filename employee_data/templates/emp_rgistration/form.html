@@ -1,0 +1,62 @@
+{% extends 'emp_rgistration/base.html' %}
+
+{% block content %}
+<form method="POST" class="post-form" action="">  
+        {% csrf_token %}  
+
+    <div class="container">  
+    <br>  
+    <div class="form-group row">  
+    <label class="col-sm-1 col-form-label"></label>  
+    <div class="col-sm-4">  
+    <h3>Enter Details</h3>  
+    </div>  
+  </div>  
+
+    <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Emp Code:</label>  
+    <div class="col-sm-8">  
+      {{ form.emp_code }} 
+    </div>  
+  </div> 
+
+  <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Employee Name:</label>  
+    <div class="col-sm-4">  
+      {{ form.name }}  
+    </div>  
+  </div>  
+
+    <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Department:</label>  
+    <div class="col-sm-4">  
+      {{ form.department }}  
+    </div>  
+    </div> 
+
+    <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Mobail:</label>  
+    <div class="col-sm-4">  
+      {{ form.mobail }}  
+    </div> 
+
+    <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Email:</label>  
+    <div class="col-sm-4">  
+      {{ form.email }}  
+    </div>  
+  </div>  
+  
+    <div class="form-group row">  
+    <label class="col-sm-1 col-form-label"></label>  
+    <div class="row mt-3">
+       <div class="col-md-4">
+          <button type="submit" class="btn btn-success btn-block btn-lg "><i class="fas fa-database"></i>Submit</button>
+       </div>
+       
+   </div>
+  </div>  
+    </div>
+      
+  </form>
+{% endblock content %}
